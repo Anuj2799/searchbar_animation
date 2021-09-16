@@ -19,7 +19,7 @@ class AnimatedSearchbar extends StatefulWidget {
   /// Provide the button icon by default it is search icon.
   final IconData? buttonIcon;
 
-  /// This icon appears when searchbar is open by default is is close icon.
+  /// This icon appears when searchbar is open by default it is close icon.
   final IconData? secondaryButtonIcon;
 
   /// This allows to set the colour for the button icon.
@@ -49,37 +49,37 @@ class AnimatedSearchbar extends StatefulWidget {
   /// User can set the shadow colour of button form here.
   final Color? buttonShadowColour;
 
-  /// Can set the border colour of button from here
+  /// User can set the border colour of button from here
   final Color? buttonBorderColour;
 
   /// Change the hint text from here.
   final String hintText;
 
-  /// Set the duration of the animation from here by default it is 800 milliseconds.
+  /// Set the duration of the animation from here by default it is 1000 milliseconds.
   final int durationInMilliSeconds;
 
-  /// If user required the searchbar on right side instead on left side they can set it from here.
+  /// If user required the searchbar on right side instead of left side they can set it from here.
   final bool onRightSide;
 
-  /// This is used to hide the keyboard once tap the entre.
+  /// This is used to hide the keyboard once tap the entre button.
   final bool autoFocusOn;
 
-  /// Can set if button shadow is required from here.
+  /// User can set button shadow from here.
   final bool enableButtonShadow;
 
   /// Can set if searchBox shadow is required from here.
   final bool enableBoxShadow;
 
-  /// Can set the direction of the text in case for the some languages like arabic.
+  /// Can set the direction of the text, for instance form right to left in case of languages like arabic.
   final bool textAlignToRight;
 
   /// If searchBox border is required can set from here.
   final bool enableBoxBorder;
 
-  /// If user wants button border they can set this value as true for the same
+  /// If user wants button border they can set it from here
   final bool enableButtonBorder;
 
-  /// This is the required field it allows to have different theme for you animation
+  /// This is the required field it allows to have different style for the animation
   final bool isOriginalAnimation;
 
   /// Can set textStyle from here.
@@ -91,7 +91,7 @@ class AnimatedSearchbar extends StatefulWidget {
   /// OnChanged function for the textFormField.
   final Function? onChanged;
 
-  /// Can set keyBoard Type from here like(e.g TextInputType.numeric) by default it is set to text,
+  /// Can set keyBoard Type from here (e.g TextInputType.numeric) by default it is set to text,
   final TextInputType textInputType;
 
   /// Can set RegExp from here.
@@ -136,8 +136,7 @@ class AnimatedSearchbar extends StatefulWidget {
   _AnimatedSearchbarState createState() => _AnimatedSearchbarState();
 }
 
-class _AnimatedSearchbarState extends State<AnimatedSearchbar>
-    with SingleTickerProviderStateMixin {
+class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   FocusNode focusNode = FocusNode();
   bool _isAnimationOn = false;
@@ -153,9 +152,9 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar>
       borderRadius: BorderRadius.circular(60.0),
       boxShadow: <BoxShadow>[
         BoxShadow(
-          blurRadius: 4.0,
-          spreadRadius: 2.0,
-          color: Colors.black38,
+          blurRadius: 5.0,
+          spreadRadius: 0.0,
+          color: Colors.black45,
         )
       ],
     ),
@@ -178,10 +177,13 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar>
 
   @override
   Widget build(BuildContext context) {
+    return _buildAnimatedSearchbarBody();
+  }
+
+  Widget _buildAnimatedSearchbarBody() {
     return Container(
       height: 60.0,
-      alignment:
-          widget.onRightSide ? Alignment.centerRight : Alignment.centerLeft,
+      alignment: widget.onRightSide ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         decoration: BoxDecoration(
           color: _isAnimationOn ? widget.searchBarColour : Colors.transparent,
@@ -208,9 +210,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar>
         child: AnimatedContainer(
           duration: Duration(milliseconds: widget.durationInMilliSeconds),
           height: 48.0,
-          width: (!switcher)
-              ? 48.0
-              : (widget.searchBoxWidth ?? MediaQuery.of(context).size.width),
+          width: (!switcher) ? 48.0 : (widget.searchBoxWidth ?? MediaQuery.of(context).size.width),
           curve: Curves.easeOut,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.0),
@@ -254,119 +254,35 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar>
                   child: Container(
                     padding: const EdgeInsets.only(left: 10),
                     alignment: Alignment.topCenter,
-                    width: (widget.searchBoxWidth ??
-                            MediaQuery.of(context).size.width) /
-                        1.7,
-                    child: TextFormField(
-                      controller: widget.textController,
-                      inputFormatters: widget.inputFormatters,
-                      focusNode: focusNode,
-                      cursorWidth: 2.0,
-                      onEditingComplete: () {
-                        unFocusKeyboard();
-                        setState(() {
-                          switcher = false;
-                        });
-                      },
-                      keyboardType: widget.textInputType,
-                      onChanged: (var value) {
-                        (widget.onChanged != null)
-                            ? widget.onChanged!(value)
-                            : debugPrint('Not Implemented');
-                      },
-                      onSaved: (var value) {
-                        (widget.onSaved != null)
-                            ? widget.onSaved!(value)
-                            : debugPrint('Not Implemented');
-                      },
-                      style: widget.style != null
-                          ? widget.style
-                          : TextStyle(color: Colors.black),
-                      cursorColor: widget.cursorColour,
-                      textAlign: widget.textAlignToRight
-                          ? TextAlign.right
-                          : TextAlign.left,
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.only(bottom: 5),
-                        isDense: true,
-                        floatingLabelBehavior: FloatingLabelBehavior.never,
-                        hintText: widget.hintText,
-                        hintStyle: TextStyle(
-                          color: widget.hintTextColour, //Color(0xff5B5B5B),
-                          fontSize: 17.0,
-                          fontWeight: FontWeight.w500,
-                          height: kIsWeb ? 1.5 : 1.2,
-                        ),
-                        alignLabelWithHint: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          borderSide: BorderSide.none,
-                        ),
-                      ),
-                    ),
+                    width: (widget.searchBoxWidth ?? MediaQuery.of(context).size.width) / 1.7,
+                    child: _textFormField(),
                   ),
                 ),
               ),
               Align(
-                alignment: widget.onRightSide
-                    ? Alignment.centerRight
-                    : Alignment.centerLeft,
+                alignment: widget.onRightSide ? Alignment.centerRight : Alignment.centerLeft,
                 child: (widget.isOriginalAnimation)
                     ? Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: _isAnimationOn
-                                ? null
-                                : Border.all(color: widget.buttonBorderColour!),
+                            border: _isAnimationOn ? null : Border.all(color: widget.buttonBorderColour!),
                           ),
                           child: DecoratedBoxTransition(
-                            decoration:
-                                decorationTween.animate(_animationController),
+                            decoration: decorationTween.animate(_animationController),
                             child: GestureDetector(
                               child: CircleAvatar(
                                 backgroundColor: widget.buttonColour,
                                 child: Icon(
-                                  switcher
-                                      ? widget.secondaryButtonIcon!
-                                      : widget.buttonIcon!,
+                                  switcher ? widget.secondaryButtonIcon! : widget.buttonIcon!,
                                   size: 20.0,
-                                  color: switcher
-                                      ? widget.secondaryButtonIconColour
-                                      : widget.buttonIconColour,
+                                  color:
+                                      switcher ? widget.secondaryButtonIconColour : widget.buttonIconColour,
                                 ),
                               ),
                               onTap: () {
-                                _isAnimationOn = true;
-                                setState(
-                                  () {
-                                    if (!switcher) {
-                                      switcher = true;
-                                      setState(() {
-                                        if (widget.autoFocusOn)
-                                          FocusScope.of(context)
-                                              .requestFocus(focusNode);
-                                      });
-
-                                      _animationController.forward();
-                                    } else {
-                                      switcher = false;
-                                      setState(() {
-                                        if (widget.autoFocusOn) {
-                                          unFocusKeyboard();
-                                        }
-                                      });
-                                      _animationController
-                                          .reverse()
-                                          .then((value) => {
-                                                setState(() {
-                                                  _isAnimationOn = false;
-                                                })
-                                              });
-                                    }
-                                  },
-                                );
+                                _onTapFunctionOriginalAnim();
                               },
                             ),
                           ),
@@ -393,51 +309,13 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar>
                             child: CircleAvatar(
                               backgroundColor: widget.buttonColour,
                               child: Icon(
-                                switcher
-                                    ? widget.secondaryButtonIcon!
-                                    : widget.buttonIcon!,
+                                switcher ? widget.secondaryButtonIcon! : widget.buttonIcon!,
                                 size: 20.0,
-                                color: switcher
-                                    ? widget.secondaryButtonIconColour
-                                    : widget.buttonIconColour,
+                                color: switcher ? widget.secondaryButtonIconColour : widget.buttonIconColour,
                               ),
                             ),
                             onTap: () {
-                              _isAnimationOn = true;
-                              setState(
-                                () {
-                                  if (!switcher) {
-                                    switcher = true;
-                                    setState(() {
-                                      if (widget.autoFocusOn)
-                                        FocusScope.of(context)
-                                            .requestFocus(focusNode);
-                                    });
-
-                                    _animationController
-                                        .forward()
-                                        .then((value) => {
-                                              setState(() {
-                                                _isAnimationOn = true;
-                                              })
-                                            });
-                                  } else {
-                                    switcher = false;
-                                    setState(() {
-                                      if (widget.autoFocusOn) {
-                                        unFocusKeyboard();
-                                      }
-                                    });
-                                    _animationController
-                                        .reverse()
-                                        .then((value) => {
-                                              setState(() {
-                                                _isAnimationOn = false;
-                                              })
-                                            });
-                                  }
-                                },
-                              );
+                              _onTapFunction();
                             },
                           ),
                         ),
@@ -450,6 +328,110 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar>
     );
   }
 
+  /// This is the tap function for the animation style except the original animation style.
+  void _onTapFunction() {
+    _isAnimationOn = true;
+    setState(
+      () {
+        if (!switcher) {
+          switcher = true;
+          setState(() {
+            if (widget.autoFocusOn) FocusScope.of(context).requestFocus(focusNode);
+          });
+          _animationController.forward().then((value) => {
+                setState(() {
+                  _isAnimationOn = true;
+                })
+              });
+        } else {
+          switcher = false;
+          setState(() {
+            if (widget.autoFocusOn) {
+              unFocusKeyboard();
+            }
+          });
+          _animationController.reverse().then((value) => {
+                setState(() {
+                  _isAnimationOn = false;
+                })
+              });
+        }
+      },
+    );
+  }
+
+  /// This is the tap function for the original animation style.
+  void _onTapFunctionOriginalAnim() {
+    _isAnimationOn = true;
+    setState(
+      () {
+        if (!switcher) {
+          switcher = true;
+          setState(() {
+            if (widget.autoFocusOn) FocusScope.of(context).requestFocus(focusNode);
+          });
+          _animationController.forward();
+        } else {
+          switcher = false;
+          setState(() {
+            if (widget.autoFocusOn) {
+              unFocusKeyboard();
+            }
+          });
+          _animationController.reverse().then((value) => {
+                setState(() {
+                  _isAnimationOn = false;
+                })
+              });
+        }
+      },
+    );
+  }
+
+  /// This function is for the textFormField of searchbar.
+  TextFormField _textFormField() {
+    return TextFormField(
+      controller: widget.textController,
+      inputFormatters: widget.inputFormatters,
+      focusNode: focusNode,
+      cursorWidth: 2.0,
+      onEditingComplete: () {
+        unFocusKeyboard();
+        setState(() {
+          switcher = false;
+        });
+      },
+      keyboardType: widget.textInputType,
+      onChanged: (var value) {
+        (widget.onChanged != null) ? widget.onChanged!(value) : debugPrint('Not Implemented');
+      },
+      onSaved: (var value) {
+        (widget.onSaved != null) ? widget.onSaved!(value) : debugPrint('Not Implemented');
+      },
+      style: widget.style != null ? widget.style : TextStyle(color: Colors.black),
+      cursorColor: widget.cursorColour,
+      textAlign: widget.textAlignToRight ? TextAlign.right : TextAlign.left,
+      decoration: InputDecoration(
+        contentPadding: const EdgeInsets.only(bottom: 5),
+        isDense: true,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        hintText: widget.hintText,
+        hintStyle: TextStyle(
+          color: widget.hintTextColour, //Color(0xff5B5B5B),
+          fontSize: 17.0,
+          fontWeight: FontWeight.w500,
+          height: kIsWeb ? 1.5 : 1.2,
+        ),
+        alignLabelWithHint: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+          borderSide: BorderSide.none,
+        ),
+      ),
+    );
+  }
+
+  /// This is for unFocusing the keyboard after the search is completed.
   void unFocusKeyboard() {
     final FocusScopeNode currentFocusScope = FocusScope.of(context);
     if (!currentFocusScope.hasPrimaryFocus && currentFocusScope.hasFocus) {
