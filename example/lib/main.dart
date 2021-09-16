@@ -18,7 +18,8 @@ class AnimatedSearchBarExample extends StatefulWidget {
   const AnimatedSearchBarExample({Key? key}) : super(key: key);
 
   @override
-  _AnimatedSearchBarExampleState createState() => _AnimatedSearchBarExampleState();
+  _AnimatedSearchBarExampleState createState() =>
+      _AnimatedSearchBarExampleState();
 }
 
 class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
@@ -52,7 +53,8 @@ class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 85.0, left: 8.0, right: 8.0, bottom: 8.0),
+              padding: EdgeInsets.only(
+                  top: 85.0, left: 8.0, right: 8.0, bottom: 8.0),
               child: Container(
                 height: 494.0,
                 decoration: BoxDecoration(
