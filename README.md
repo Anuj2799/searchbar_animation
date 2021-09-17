@@ -137,5 +137,8 @@ Contribution towards our repository is always welcome, we request contributors t
 	- Device specification like (Manufacturer, OS version, etc)
  	- Screenshot/video with steps to reproduce the issue
 
+## LICENSE
+Animated Searchbar is [MIT-licensed](https://github.com/Anuj2799/animated_searchbar/blob/development/LICENSE "MIT-licensed").
+
 ## Let us know!
 I’d be really happy if you send me the links to your projects where you have used our component. Just send an email to anujpatel0001@gmail.com And do let us know if you have any questions or suggestion regarding our work.
