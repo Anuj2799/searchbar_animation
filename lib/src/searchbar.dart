@@ -11,7 +11,7 @@ class AnimatedSearchbar extends StatefulWidget {
   final double buttonElevation;
 
   /// Pass textEditing controller here.
-  final TextEditingController textController;
+  final TextEditingController textEditingController;
 
   /// Provide trailing icon in searchbar by default it is search icon.
   final IconData? trailingIcon;
@@ -62,7 +62,7 @@ class AnimatedSearchbar extends StatefulWidget {
   final bool onRightSide;
 
   /// This is used to hide the keyboard once tap the entre button.
-  final bool autoFocusOn;
+  final bool enableKeyboardFocus;
 
   /// User can set button shadow from here.
   final bool enableButtonShadow;
@@ -82,8 +82,8 @@ class AnimatedSearchbar extends StatefulWidget {
   /// This is the required field it allows to have different style for the animation
   final bool isOriginalAnimation;
 
-  /// Can set textStyle from here.
-  final TextStyle? style;
+  /// This allows us to change the style of the text whixh user have entered in the textFormField of search box.
+  final TextStyle? enteredTextStyle;
 
   /// OnSaved function for the textFormField.
   final Function? onSaved;
@@ -98,7 +98,7 @@ class AnimatedSearchbar extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
 
   const AnimatedSearchbar({
-    required this.textController,
+    required this.textEditingController,
     required this.isOriginalAnimation,
     Key? key,
     this.searchBoxWidth,
@@ -119,7 +119,7 @@ class AnimatedSearchbar extends StatefulWidget {
     this.durationInMilliSeconds = 1000,
     this.textInputType = TextInputType.text,
     this.onRightSide = false,
-    this.autoFocusOn = false,
+    this.enableKeyboardFocus = false,
     this.enableBoxBorder = false,
     this.enableButtonBorder = false,
     this.enableButtonShadow = true,
@@ -127,7 +127,7 @@ class AnimatedSearchbar extends StatefulWidget {
     this.textAlignToRight = false,
     this.onSaved,
     this.onChanged,
-    this.style,
+    this.enteredTextStyle,
     this.buttonElevation = 0,
     this.inputFormatters,
   }) : super(key: key);
@@ -136,7 +136,8 @@ class AnimatedSearchbar extends StatefulWidget {
   _AnimatedSearchbarState createState() => _AnimatedSearchbarState();
 }
 
-class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTickerProviderStateMixin {
+class _AnimatedSearchbarState extends State<AnimatedSearchbar>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   FocusNode focusNode = FocusNode();
   bool _isAnimationOn = false;
@@ -183,7 +184,8 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
   Widget _buildAnimatedSearchbarBody() {
     return Container(
       height: 60.0,
-      alignment: widget.onRightSide ? Alignment.centerRight : Alignment.centerLeft,
+      alignment:
+          widget.onRightSide ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         decoration: BoxDecoration(
           color: _isAnimationOn ? widget.searchBarColour : Colors.transparent,
@@ -210,7 +212,9 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
         child: AnimatedContainer(
           duration: Duration(milliseconds: widget.durationInMilliSeconds),
           height: 48.0,
-          width: (!switcher) ? 48.0 : (widget.searchBoxWidth ?? MediaQuery.of(context).size.width),
+          width: (!switcher)
+              ? 48.0
+              : (widget.searchBoxWidth ?? MediaQuery.of(context).size.width),
           curve: Curves.easeOut,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.0),
@@ -254,31 +258,41 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
                   child: Container(
                     padding: const EdgeInsets.only(left: 10),
                     alignment: Alignment.topCenter,
-                    width: (widget.searchBoxWidth ?? MediaQuery.of(context).size.width) / 1.7,
+                    width: (widget.searchBoxWidth ??
+                            MediaQuery.of(context).size.width) /
+                        1.7,
                     child: _textFormField(),
                   ),
                 ),
               ),
               Align(
-                alignment: widget.onRightSide ? Alignment.centerRight : Alignment.centerLeft,
+                alignment: widget.onRightSide
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
                 child: (widget.isOriginalAnimation)
                     ? Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: _isAnimationOn ? null : Border.all(color: widget.buttonBorderColour!),
+                            border: _isAnimationOn
+                                ? null
+                                : Border.all(color: widget.buttonBorderColour!),
                           ),
                           child: DecoratedBoxTransition(
-                            decoration: decorationTween.animate(_animationController),
+                            decoration:
+                                decorationTween.animate(_animationController),
                             child: GestureDetector(
                               child: CircleAvatar(
                                 backgroundColor: widget.buttonColour,
                                 child: Icon(
-                                  switcher ? widget.secondaryButtonIcon! : widget.buttonIcon!,
+                                  switcher
+                                      ? widget.secondaryButtonIcon!
+                                      : widget.buttonIcon!,
                                   size: 20.0,
-                                  color:
-                                      switcher ? widget.secondaryButtonIconColour : widget.buttonIconColour,
+                                  color: switcher
+                                      ? widget.secondaryButtonIconColour
+                                      : widget.buttonIconColour,
                                 ),
                               ),
                               onTap: () {
@@ -309,9 +323,13 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
                             child: CircleAvatar(
                               backgroundColor: widget.buttonColour,
                               child: Icon(
-                                switcher ? widget.secondaryButtonIcon! : widget.buttonIcon!,
+                                switcher
+                                    ? widget.secondaryButtonIcon!
+                                    : widget.buttonIcon!,
                                 size: 20.0,
-                                color: switcher ? widget.secondaryButtonIconColour : widget.buttonIconColour,
+                                color: switcher
+                                    ? widget.secondaryButtonIconColour
+                                    : widget.buttonIconColour,
                               ),
                             ),
                             onTap: () {
@@ -336,7 +354,8 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
         if (!switcher) {
           switcher = true;
           setState(() {
-            if (widget.autoFocusOn) FocusScope.of(context).requestFocus(focusNode);
+            if (widget.enableKeyboardFocus)
+              FocusScope.of(context).requestFocus(focusNode);
           });
           _animationController.forward().then((value) => {
                 setState(() {
@@ -346,7 +365,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
         } else {
           switcher = false;
           setState(() {
-            if (widget.autoFocusOn) {
+            if (widget.enableKeyboardFocus) {
               unFocusKeyboard();
             }
           });
@@ -368,13 +387,14 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
         if (!switcher) {
           switcher = true;
           setState(() {
-            if (widget.autoFocusOn) FocusScope.of(context).requestFocus(focusNode);
+            if (widget.enableKeyboardFocus)
+              FocusScope.of(context).requestFocus(focusNode);
           });
           _animationController.forward();
         } else {
           switcher = false;
           setState(() {
-            if (widget.autoFocusOn) {
+            if (widget.enableKeyboardFocus) {
               unFocusKeyboard();
             }
           });
@@ -391,10 +411,11 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
   /// This function is for the textFormField of searchbar.
   TextFormField _textFormField() {
     return TextFormField(
-      controller: widget.textController,
+      controller: widget.textEditingController,
       inputFormatters: widget.inputFormatters,
       focusNode: focusNode,
       cursorWidth: 2.0,
+      textInputAction: TextInputAction.search,
       onEditingComplete: () {
         unFocusKeyboard();
         setState(() {
@@ -403,12 +424,17 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
       },
       keyboardType: widget.textInputType,
       onChanged: (var value) {
-        (widget.onChanged != null) ? widget.onChanged!(value) : debugPrint('Not Implemented');
+        (widget.onChanged != null)
+            ? widget.onChanged!(value)
+            : debugPrint('Not Implemented');
       },
       onSaved: (var value) {
-        (widget.onSaved != null) ? widget.onSaved!(value) : debugPrint('Not Implemented');
+        (widget.onSaved != null)
+            ? widget.onSaved!(value)
+            : debugPrint('Not Implemented');
       },
-      style: widget.style != null ? widget.style : TextStyle(color: Colors.black),
+      style:
+          widget.enteredTextStyle != null ? widget.enteredTextStyle : TextStyle(color: Colors.red),
       cursorColor: widget.cursorColour,
       textAlign: widget.textAlignToRight ? TextAlign.right : TextAlign.left,
       decoration: InputDecoration(
@@ -431,7 +457,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
     );
   }
 
-  /// This is for unFocusing the keyboard after the search is completed.
+  /// This is for Focusing or unFocusing the keyboard on the tap of search button.
   void unFocusKeyboard() {
     final FocusScopeNode currentFocusScope = FocusScope.of(context);
     if (!currentFocusScope.hasPrimaryFocus && currentFocusScope.hasFocus) {

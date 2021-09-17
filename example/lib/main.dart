@@ -69,8 +69,9 @@ class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: AnimatedSearchbar(
-                          textController: TextEditingController(),
-                          isOriginalAnimation: false,
+                          textEditingController: TextEditingController(),
+                          isOriginalAnimation: true,
+                          enableKeyboardFocus: true,
                         ),
                       ),
                       SizedBox(height: 200.0),
