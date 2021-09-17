@@ -7,7 +7,7 @@ Animated Searchbar provides the horizontal slide animation to a searchbar.
 ### Usage
 
 ### Installation
-Add `animated_searchbar: ^4.0.0` to your `pubspec.yaml` dependencies. And import it:
+Add `animated_searchbar: any` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
 import 'package:animated_searchbar/animated_searchbar.dart';
@@ -18,7 +18,10 @@ import 'package:animated_searchbar/animated_searchbar.dart';
         textController: TextEditingController(),
         isOriginalAnimation: false,
         buttonBorderColour: Colors.black45,
-        enableKeyboardFocus: true,
+        buttonIcon: Icons.search,
+        onFieldSubmitted: (String value){
+            debugPrint('onFieldSubmitted value $value');
+        },
     ),
 
 ### Required Parameters
@@ -110,6 +113,9 @@ This is used to enable the button animation, default animation is based on 'Deco
 
 #### onChanged:
 - This is the onChanged method of the textFormField.
+
+#### onFieldSubmitted:
+- This is the onFieldSubmitted method of the textFormField.
 
 #### enteredTextStyle:
 - This allows us to change the style of the text which user have entered in the textFormField of search box.

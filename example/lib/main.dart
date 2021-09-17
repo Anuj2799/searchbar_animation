@@ -72,6 +72,9 @@ class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
                           textEditingController: TextEditingController(),
                           isOriginalAnimation: true,
                           enableKeyboardFocus: true,
+                          onFieldSubmitted: (String value){
+                            debugPrint('onFieldSubmitted value $value');
+                          },
                         ),
                       ),
                       SizedBox(height: 200.0),
