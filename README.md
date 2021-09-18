@@ -27,11 +27,10 @@ import 'package:animated_searchbar/animated_searchbar.dart';
 ### Required Parameters
 
 #### textEditingController:
-Need to pass the textEditingController for the textFormField of the searchbar.
+Need to pass the textEditingController for the textFormField of searchbar.
 
 #### isOriginalAnimation:
 This is used to enable the button animation, default animation is based on 'DecoratedBoxTransition'. By default it is set to true.User can set it to false in order to disable the button animation and give the button shadow and border as per their requirement but if it is set to true than cannot give shadow to the button when search box is closed.
-
 
 
 ### Optional Parameters
@@ -109,7 +108,7 @@ This is used to enable the button animation, default animation is based on 'Deco
 - In case of some languages like arabic if it is require to start from the right side than same can be done from this parameter.
 
 #### onSaved:
-- This is the onSaved method of the textFormField.
+- This is the onSaved method of the textFormField, In order to use this user must wrap this widget into 'Form' widget.
 
 #### onChanged:
 - This is the onChanged method of the textFormField.

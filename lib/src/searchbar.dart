@@ -85,7 +85,7 @@ class AnimatedSearchbar extends StatefulWidget {
   /// This allows us to change the style of the text which user have entered in the textFormField of search box.
   final TextStyle? enteredTextStyle;
 
-  /// OnSaved function for the textFormField.
+  /// OnSaved function for the textFormField, In order to use this user must wrap this widget into 'Form' widget.
   final Function? onSaved;
 
   /// OnChanged function for the textFormField.
@@ -393,6 +393,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
         }
       },
     );
+    unFocusKeyboard();
   }
 
   /// This function is for the textFormField of searchbar.
@@ -409,7 +410,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
         });
         (widget.onFieldSubmitted != null)
             ? widget.onFieldSubmitted!(value)
-            : debugPrint('onFieldSubmitted Not Implemented');
+            : debugPrint('onFieldSubmitted Not Used');
       },
       onEditingComplete: () {
         unFocusKeyboard();
@@ -419,10 +420,10 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
       },
       keyboardType: widget.textInputType,
       onChanged: (var value) {
-        (widget.onChanged != null) ? widget.onChanged!(value) : debugPrint('onChanged Not Implemented');
+        (widget.onChanged != null) ? widget.onChanged!(value) : debugPrint('onChanged Not Used');
       },
       onSaved: (var value) {
-        (widget.onSaved != null) ? widget.onSaved!(value) : debugPrint('onSaved Not Implemented');
+        (widget.onSaved != null) ? widget.onSaved!(value) : debugPrint('onSaved Not Used');
       },
       style: widget.enteredTextStyle != null ? widget.enteredTextStyle : TextStyle(color: Colors.black),
       cursorColor: widget.cursorColour,
@@ -433,9 +434,9 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
         floatingLabelBehavior: FloatingLabelBehavior.never,
         hintText: widget.hintText,
         hintStyle: TextStyle(
-          color: widget.hintTextColour, //Color(0xff5B5B5B),
+          color: widget.hintTextColour,
           fontSize: 17.0,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w400,
           height: kIsWeb ? 1.5 : 1.2,
         ),
         alignLabelWithHint: true,
@@ -447,7 +448,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
     );
   }
 
-  /// This is for Focusing or unFocusing the keyboard on the tap of search button.
+  /// This is for automatically Focusing or unFocusing the keyboard on the tap of search button.
   void unFocusKeyboard() {
     final FocusScopeNode currentFocusScope = FocusScope.of(context);
     if (!currentFocusScope.hasPrimaryFocus && currentFocusScope.hasFocus) {
