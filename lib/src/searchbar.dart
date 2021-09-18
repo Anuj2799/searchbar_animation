@@ -7,19 +7,19 @@ class AnimatedSearchbar extends StatefulWidget {
   /// This gives the width to the searchbar by default it will take the size of whole screen.
   final double? searchBoxWidth;
 
-  /// This give the shadow to the searchbar button by default it is 0.
+  /// This give the shadow to the search box button by default it is 0.
   final double buttonElevation;
 
-  /// Pass textEditing controller here.
+  /// Need to pass the textEditingController for the textFormField of the searchbar.
   final TextEditingController textEditingController;
 
-  /// Provide trailing icon in searchbar by default it is search icon.
+  /// Provide trailing icon in search box which is at the end of search box by default it is search icon.
   final IconData? trailingIcon;
 
-  /// Provide the button icon by default it is search icon.
+  /// Provide the button icon that is when the search box is closed by default it is search icon.
   final IconData? buttonIcon;
 
-  /// This icon appears when searchbar is open by default it is close icon.
+  /// Provide the button icon that is when the search box is open by default it is close icon.
   final IconData? secondaryButtonIcon;
 
   /// This allows to set the colour for the button icon.
@@ -28,22 +28,22 @@ class AnimatedSearchbar extends StatefulWidget {
   /// This allows to set the colour for the trailing icon.
   final Color? trailingIconColour;
 
-  /// This allows to set the colour for the secondary icon which is icon appears when searchbar is open.
+  /// This allows to set the colour for the secondary icon which is icon appears when search box is open.
   final Color? secondaryButtonIconColour;
 
-  /// This allows to set the hintText color here hintText is search Here.
+  /// This allows to set the hintText color of textFormField of the search box.
   final Color? hintTextColour;
 
-  /// This allows to set the colour of the whole searchbar field by default it is set to white.
+  /// This allows to set the background colour of the whole search box field by default it is set to white.
   final Color? searchBarColour;
 
-  /// This property allows to set the colour of the search button.
+  /// This property allows to set the background colour of the search button.
   final Color? buttonColour;
 
-  /// This allows to set the colour of the cursor.
+  /// This allows to set the colour of the cursor of textFormField.
   final Color? cursorColour;
 
-  /// If user required the search box border then they can set it's colour from here.
+  /// If user required the search box border than they can set it's colour from here.
   final Color? searchBoxBorderColour;
 
   /// User can set the shadow colour of button form here.
@@ -52,37 +52,37 @@ class AnimatedSearchbar extends StatefulWidget {
   /// User can set the border colour of button from here
   final Color? buttonBorderColour;
 
-  /// Change the hint text from here.
+  /// Can Change the hint text from here.
   final String hintText;
 
-  /// Set the duration of the animation from here by default it is 1000 milliseconds.
+  /// Set the duration of animation from here by default it is 1000 milliseconds.
   final int durationInMilliSeconds;
 
-  /// If user required the searchbar on right side instead of left side they can set it from here.
-  final bool onRightSide;
+  /// If user required the search box appear on the right side instead of left side they can set it from here.
+  final bool isSearchBoxOnRightSide;
 
-  /// This is used to hide the keyboard once tap the entre button.
+  /// This property allows user to enable the keyboard on tap of search box button directly if this is set as true if not set as true than it will not automatically bring keyboard on tap of the search box button instead it will bring keyboard once searchField is tapped.
   final bool enableKeyboardFocus;
 
-  /// User can set button shadow from here.
+  /// Can enable or disable the shadow of the button from here if isOriginalAnimation is set to false.
   final bool enableButtonShadow;
 
   /// Can set if searchBox shadow is required from here.
   final bool enableBoxShadow;
 
-  /// Can set the direction of the text, for instance form right to left in case of languages like arabic.
+  /// Can set the direction of the text, That is form right to left in case of languages like arabic.
   final bool textAlignToRight;
 
-  /// If searchBox border is required can set from here.
+  /// If user wants the border around the search box can enable from this parameter.
   final bool enableBoxBorder;
 
-  /// If user wants button border they can set it from here
+  /// If user wants border around the button they can set it from this parameter.
   final bool enableButtonBorder;
 
-  /// This is the required field it allows to have different style for the animation
+  /// This is the required field it allows to enable or disable the animation of the button currently it's animation is based on the 'DecoratedBoxTransition', If it is disabled than user can give the shadow to the button but if it is set to true than cannot give shadow to the button when search box is closed.
   final bool isOriginalAnimation;
 
-  /// This allows us to change the style of the text whixh user have entered in the textFormField of search box.
+  /// This allows us to change the style of the text which user have entered in the textFormField of search box.
   final TextStyle? enteredTextStyle;
 
   /// OnSaved function for the textFormField.
@@ -97,7 +97,7 @@ class AnimatedSearchbar extends StatefulWidget {
   /// Can set keyBoard Type from here (e.g TextInputType.numeric) by default it is set to text,
   final TextInputType textInputType;
 
-  /// Can set RegExp from here.
+  /// Can set RegExp in the textFormField of search box from here.
   final List<TextInputFormatter>? inputFormatters;
 
   const AnimatedSearchbar({
@@ -121,7 +121,7 @@ class AnimatedSearchbar extends StatefulWidget {
     this.buttonBorderColour = Colors.black26,
     this.durationInMilliSeconds = 1000,
     this.textInputType = TextInputType.text,
-    this.onRightSide = false,
+    this.isSearchBoxOnRightSide = false,
     this.enableKeyboardFocus = false,
     this.enableBoxBorder = false,
     this.enableButtonBorder = false,
@@ -187,7 +187,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
   Widget _buildAnimatedSearchbarBody() {
     return Container(
       height: 60.0,
-      alignment: widget.onRightSide ? Alignment.centerRight : Alignment.centerLeft,
+      alignment: widget.isSearchBoxOnRightSide ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         decoration: BoxDecoration(
           color: _isAnimationOn ? widget.searchBarColour : Colors.transparent,
@@ -224,8 +224,8 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
               AnimatedPositioned(
                 duration: Duration(milliseconds: widget.durationInMilliSeconds),
                 top: 6.0,
-                left: widget.onRightSide ? 7.0 : null,
-                right: !widget.onRightSide ? 7.0 : null,
+                left: widget.isSearchBoxOnRightSide ? 7.0 : null,
+                right: !widget.isSearchBoxOnRightSide ? 7.0 : null,
                 curve: Curves.easeOut,
                 child: AnimatedOpacity(
                   opacity: (!switcher) ? 0.0 : 1.0,
@@ -264,14 +264,17 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
                 ),
               ),
               Align(
-                alignment: widget.onRightSide ? Alignment.centerRight : Alignment.centerLeft,
+                alignment:
+                    widget.isSearchBoxOnRightSide ? Alignment.centerRight : Alignment.centerLeft,
                 child: (widget.isOriginalAnimation)
                     ? Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: _isAnimationOn ? null : Border.all(color: widget.buttonBorderColour!),
+                            border: _isAnimationOn
+                                ? null
+                                : Border.all(color: widget.buttonBorderColour!),
                           ),
                           child: DecoratedBoxTransition(
                             decoration: decorationTween.animate(_animationController),

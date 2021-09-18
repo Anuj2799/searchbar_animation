@@ -30,7 +30,7 @@ import 'package:animated_searchbar/animated_searchbar.dart';
 Need to pass the textEditingController for the textFormField of the searchbar.
 
 #### isOriginalAnimation:
-This is used to enable the button animation, default animation is based on 'DecoratedBoxTransition'. By default it is set to true.User can set it to false in order to disable the button animation and give the button shadow and border as per their requirement.
+This is used to enable the button animation, default animation is based on 'DecoratedBoxTransition'. By default it is set to true.User can set it to false in order to disable the button animation and give the button shadow and border as per their requirement but if it is set to true than cannot give shadow to the button when search box is closed.
 
 
 
@@ -87,11 +87,11 @@ This is used to enable the button animation, default animation is based on 'Deco
 #### textInputType:
 - TextInputType decides the input type in textFormField of search box for instance it can be type numeric.
 
-#### onRightSide:
+#### isSearchBoxOnRightSide:
 - If user wants the button on the right side of the screen than can do the same by this property.
 
 #### enableKeyboardFocus:
-- This is for Focusing or unFocusing the keyboard on the tap of search button by enabling this it will automatically bring the keyboard on tap of the button otherwise it will bring the keyboard after tapping into textFormField.
+- This is for Focusing or unFocusing the keyboard on the tap of search button. By enabling this it will automatically bring the keyboard on tap of the search box button otherwise it will bring the keyboard after tapping on to the searchField.
 
 #### enableSearchBoxBorder:
 - If user want the border around the search box than it can be enable from this parameter.
@@ -100,7 +100,7 @@ This is used to enable the button animation, default animation is based on 'Deco
 - If user want the border around the button than it can be enable from this parameter.
 
 #### enableButtonShadow:
-- If user want the shadow around the button than it can be enable from this parameter.
+- Can enable or disable the shadow of the button from here if isOriginalAnimation is set to false.
 
 #### enableBoxShadow:
 - If user want the shadow under the search box than it can be enable from this parameter.
@@ -124,7 +124,7 @@ This is used to enable the button animation, default animation is based on 'Deco
 - The elevation of the button can be set from this parameter.
 
 #### inputFormatters:
-- InputFormatters helps us to set the RegExp to the textFormField.
+- InputFormatters helps us to set the RegExp to the textFormField od search box.
 
 ## Guideline for contributors
 Contribution towards our repository is always welcome, we request contributors to create a pull request to the development branch only
