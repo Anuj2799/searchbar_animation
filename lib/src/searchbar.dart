@@ -189,6 +189,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
     return _buildAnimatedSearchbarBody();
   }
 
+  /// main body of the animated searchbar
   Widget _buildAnimatedSearchbarBody() {
     return Container(
       height: 60.0,
