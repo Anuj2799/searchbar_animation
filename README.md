@@ -26,6 +26,8 @@ import 'package:animated_searchbar/animated_searchbar.dart';
         },
     ),
 
+## Parameters
+
 ### Required Parameters
 
 #### textEditingController:
