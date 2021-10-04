@@ -1,6 +1,6 @@
 # Animated Searchbar
 
-Animated Searchbar provides the horizontal slide animation to a searchbar.
+Animated Searchbar provides the horizontal slide animation to a searchbar and it is fully customizable.
 
 ### Screenshots and Screen recording
 
