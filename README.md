@@ -7,6 +7,7 @@ Animated Searchbar provides the horizontal slide animation to a searchbar.
 ### Usage
 
 #### Installation
+
 Add `animated_searchbar: any` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
@@ -14,6 +15,7 @@ import 'package:animated_searchbar/animated_searchbar.dart';
 ```
 
 #### Example
+
     AnimatedSearchbar(
         textController: TextEditingController(),
         isOriginalAnimation: false,
