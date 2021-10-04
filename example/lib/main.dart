@@ -57,7 +57,7 @@ class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
                 padding: EdgeInsets.only(
                     top: 85.0, left: 8.0, right: 8.0, bottom: 8.0),
                 child: Container(
-                  height: 550.0,
+                  height: 200.0,
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(.8),
                     borderRadius: BorderRadius.all(

@@ -94,6 +94,9 @@ class AnimatedSearchbar extends StatefulWidget {
   /// onFieldSubmitted function for the textFormField.
   final Function? onFieldSubmitted;
 
+  /// onFieldSubmitted function for the textFormField.
+  final Function? onEditingComplete;
+
   /// Can set keyBoard Type from here (e.g TextInputType.numeric) by default it is set to text,
   final TextInputType textInputType;
 
@@ -131,6 +134,7 @@ class AnimatedSearchbar extends StatefulWidget {
     this.onSaved,
     this.onChanged,
     this.onFieldSubmitted,
+    this.onEditingComplete,
     this.enteredTextStyle,
     this.buttonElevation = 0,
     this.inputFormatters,
@@ -177,6 +181,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
   void dispose() {
     super.dispose();
     _animationController.dispose();
+    widget.textEditingController.dispose();
   }
 
   @override
@@ -417,6 +422,9 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar> with SingleTicker
         setState(() {
           switcher = false;
         });
+        (widget.onEditingComplete != null)
+            ? widget.onEditingComplete!()
+            : debugPrint('onEditingComplete Not Used');
       },
       keyboardType: widget.textInputType,
       onChanged: (var value) {

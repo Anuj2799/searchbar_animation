@@ -116,6 +116,9 @@ This is used to enable the button animation, default animation is based on 'Deco
 #### onFieldSubmitted:
 - This is the onFieldSubmitted method of the textFormField.
 
+#### onEditingComplete:
+- This is the onEditingComplete method of the textFormField.
+
 #### enteredTextStyle:
 - This allows us to change the style of the text which user have entered in the textFormField of search box.
 
