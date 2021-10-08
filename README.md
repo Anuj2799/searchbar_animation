@@ -144,6 +144,8 @@ import 'package:animated_searchbar/animated_searchbar.dart';
 ## Guideline for contributors
 Contribution towards our repository is always welcome, we request contributors to create a pull request to the development branch only.
 
+<br />
+
 ## Guideline to report an issue/feature request
 - It would be great for us if the reporter can share the below things to understand the root cause of the issue.
     - Library version
@@ -151,6 +153,8 @@ Contribution towards our repository is always welcome, we request contributors t
  	- Logs if applicable
 	- Device specification like (Manufacturer, OS version, etc)
  	- Screenshot/video with steps to reproduce the issue
+
+<br />
 
 ## LICENSE
 Animated Searchbar is [MIT-licensed](https://github.com/Anuj2799/animated_searchbar/blob/development/LICENSE "MIT-licensed").
