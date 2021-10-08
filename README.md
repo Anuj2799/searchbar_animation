@@ -34,7 +34,7 @@ import 'package:animated_searchbar/animated_searchbar.dart';
 - Need to pass the textEditingController for the textFormField of searchbar.
 
 #### isOriginalAnimation:
-- This is used to enable the button animation, default animation is based on '[DecoratedBoxTransition](https://api.flutter.dev/flutter/widgets/DecoratedBoxTransition-class.html)'. By default it is set to true. User can set it to false in order to disable the button animation and give the button shadow and border as per their requirement but if it is set to true than cannot give shadow to the button when search box is closed.
+- This is used to enable the button animation, default animation is based on '[DecoratedBoxTransition](https://api.flutter.dev/flutter/widgets/DecoratedBoxTransition-class.html)'. By default it is set to true. User can set it to false in order to disable the button animation and give the button shadow and border as per their requirement but if it is set to true than user cannot give shadow to the button when search box is in closed position.
 
 <br />
 
@@ -132,6 +132,8 @@ import 'package:animated_searchbar/animated_searchbar.dart';
 
 #### inputFormatters:
 - InputFormatters helps us to set the RegExp to the textFormField od search box.
+
+<br />
 
 ## Guideline for contributors
 Contribution towards our repository is always welcome, we request contributors to create a pull request to the development branch only.
