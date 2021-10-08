@@ -57,20 +57,24 @@ class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
                 padding: EdgeInsets.only(
                     top: 85.0, left: 8.0, right: 8.0, bottom: 8.0),
                 child: Container(
-                  height: 200.0,
+                  height: 660.0,
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(.8),
                     borderRadius: BorderRadius.all(
                       Radius.circular(20.0),
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: AnimatedSearchbar(
-                      textEditingController: TextEditingController(),
-                      isOriginalAnimation: true,
-                      enableKeyboardFocus: true,
-                    ),
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: AnimatedSearchbar(
+                          textEditingController: TextEditingController(),
+                          isOriginalAnimation: true,
+                          enableKeyboardFocus: false,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
