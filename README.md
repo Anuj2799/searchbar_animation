@@ -1,6 +1,6 @@
 # Animated Searchbar
 
-![animated_searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/title_4.jpg)
+![animated_searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/title_image.jpg)
 
 <br />
 
