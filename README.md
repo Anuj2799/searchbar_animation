@@ -9,7 +9,7 @@ Animated Searchbar provides the horizontal slide animation to a searchbar and it
 <br />
 
 ## Screenshots and Screen recording
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_Img.JPEG)
+![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_Img.png)
 
 <br />
 
