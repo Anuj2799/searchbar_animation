@@ -1,6 +1,6 @@
 # Animated Searchbar
 
-![animated_searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/title_image.jpg)
+![animated_searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/title_image.jpg)
 
 <br />
 
@@ -9,17 +9,17 @@ Animated Searchbar provides the horizontal slide animation to a searchbar and it
 <br />
 
 ## Screenshots and Screen recording
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_Img.png)
+![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Img.png)
 
 <br />
 
 #### Animated Searchbar without Auto Keyboard Focus `enableKeyboardFocus: false`
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_Vid.gif)
+![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Vid.gif)
 
 <br />
 
 #### Animated Searchbar with Auto Keyboard Focus `enableKeyboardFocus: true`
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_Autofocus.gif)
+![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Autofocus.gif)
 
 ## Usage
 
