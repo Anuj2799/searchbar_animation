@@ -14,7 +14,7 @@ Animated Searchbar provides the horizontal slide animation to a searchbar and it
 <br />
 
 #### Animated Searchbar without Auto Keyboard Focus `enableKeyboardFocus: false`
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_Gif.gif)
+![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/abc.gif)
 
 <br />
 
