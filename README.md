@@ -70,7 +70,7 @@ import 'package:animated_searchbar/animated_searchbar.dart';
 - ButtonIcon is use to set the icon when the search box is closed.
 
 #### hintText:
-- HintText helps to set the hint value for the search box for instance "Search Here.."
+- HintText helps to set the hint value for the search box for instance "Search Here..".
 
 #### searchBarColour:
 - SearchBarColour helps to give the background colour of whole search box.
