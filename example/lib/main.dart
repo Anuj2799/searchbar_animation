@@ -71,7 +71,7 @@ class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
                         child: AnimatedSearchbar(
                           textEditingController: TextEditingController(),
                           isOriginalAnimation: true,
-                          enableKeyboardFocus: false,
+                          enableKeyboardFocus: true,
                         ),
                       ),
                     ],
