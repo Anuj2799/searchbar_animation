@@ -35,7 +35,7 @@ class AnimatedSearchbox extends StatefulWidget {
   final Color? hintTextColour;
 
   /// This allows to set the background colour of the whole search box field by default it is set to white.
-  final Color? searchBarColour;
+  final Color? searchBoxColour;
 
   /// This property allows to set the background colour of the search button.
   final Color? buttonColour;
@@ -112,7 +112,7 @@ class AnimatedSearchbox extends StatefulWidget {
     this.secondaryButtonIcon = Icons.close,
     this.buttonIcon = Icons.search,
     this.hintText = "Search Here",
-    this.searchBarColour = Colors.white,
+    this.searchBoxColour = Colors.white,
     this.buttonColour = Colors.white,
     this.cursorColour = Colors.black,
     this.buttonIconColour = Colors.black,
@@ -199,7 +199,7 @@ class _AnimatedSearchboxState extends State<AnimatedSearchbox>
           : Alignment.centerLeft,
       child: Container(
         decoration: BoxDecoration(
-          color: _isAnimationOn ? widget.searchBarColour : Colors.transparent,
+          color: _isAnimationOn ? widget.searchBoxColour : Colors.transparent,
           border: Border.all(
               color: !widget.enableBoxBorder
                   ? Colors.transparent

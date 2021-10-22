@@ -72,8 +72,8 @@ import 'package:animated_searchbox/animated_searchbox.dart';
 #### hintText:
 - HintText helps to set the hint value for the search box for instance "Search Here.."
 
-#### searchBarColour:
-- SearchBarColour helps to give the background colour of whole search box.
+#### searchBoxColour:
+- SearchBoxColour helps to give the background colour of whole search box.
 
 #### buttonColour:
 - ButtonColour is use to give the background colour to the button.
