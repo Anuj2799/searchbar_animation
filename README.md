@@ -1,6 +1,6 @@
 # Animated Searchbox
 
-![animated_searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/title_image.jpg)
+![animated_searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/animated_searchbox_title.jpg)
 
 <br />
 
