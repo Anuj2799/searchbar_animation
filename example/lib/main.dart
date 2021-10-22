@@ -1,36 +1,36 @@
 import 'dart:ui';
 
-import 'package:animated_search_box/animated_search_box.dart';
+import 'package:searchbar_animation/searchbar_animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      title: 'Animated Searchbox',
-      home: AnimatedSearchBoxExample(),
+      title: 'Animated Searchbar',
+      home: SearchbarAnimationExample(),
       debugShowCheckedModeBanner: false,
     ),
   );
 }
 
-class AnimatedSearchBoxExample extends StatefulWidget {
-  const AnimatedSearchBoxExample({Key? key}) : super(key: key);
+class SearchbarAnimationExample extends StatefulWidget {
+  const SearchbarAnimationExample({Key? key}) : super(key: key);
 
   @override
-  _AnimatedSearchBoxExampleState createState() =>
-      _AnimatedSearchBoxExampleState();
+  _SearchbarAnimationExampleState createState() =>
+      _SearchbarAnimationExampleState();
 }
 
-class _AnimatedSearchBoxExampleState extends State<AnimatedSearchBoxExample> {
+class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildAnimatedSearchbox(),
+      body: _buildSearchbarAnimation(),
     );
   }
 
-  Widget _buildAnimatedSearchbox() {
+  Widget _buildSearchbarAnimation() {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -49,7 +49,7 @@ class _AnimatedSearchBoxExampleState extends State<AnimatedSearchBoxExample> {
               Padding(
                 padding: const EdgeInsets.only(top: 100.0),
                 child: Text(
-                  'Animated Searchbox',
+                  'Animated Searchbar',
                   style: TextStyle(color: Colors.white, fontSize: 25.0),
                 ),
               ),
@@ -68,7 +68,7 @@ class _AnimatedSearchBoxExampleState extends State<AnimatedSearchBoxExample> {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: AnimatedSearchbox(
+                        child: SearchBarAnimation(
                           textEditingController: TextEditingController(),
                           isOriginalAnimation: true,
                           enableKeyboardFocus: true,

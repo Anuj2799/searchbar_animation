@@ -1,5 +1,5 @@
-name: animated_search_box
-description: Animated Searchbox provides the horizontal slide animation to a searchbar and it is fully customizable.
+name: searchbar_animation
+description: Searchbar Animation provides the horizontal slide animation to a searchbar and it is fully customizable.
 homepage: https://github.com/Anuj2799/animated_search_box
 
 # The following line prevents the package from being accidentally published to

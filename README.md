@@ -1,39 +1,39 @@
-# Animated Searchbox
+# Searchbar Animation
 
-![animated_searchbox](https://github.com/Anuj2799/animated_search_box/blob/master/assets/animated_searchbox_title.jpg)
+![searchbar_animation](https://github.com/Anuj2799/animated_search_box/blob/master/assets/animated_searchbox_title.jpg)
 
 <br />
 
-Animated Searchbox provides the horizontal slide animation to a searchbar and it is fully customizable.
+Searchbar Animation provides the horizontal slide animation to a searchbar and it is fully customizable.
 
 <br />
 
 ## Screenshots and Screen recording
-![Animated Searchbox](https://github.com/Anuj2799/animated_search_box/blob/master/assets/Animated_Searchbox_1_Img.jpeg)
+![Searchbar Animation](https://github.com/Anuj2799/animated_search_box/blob/master/assets/Animated_Searchbox_1_Img.jpeg)
 
 <br />
 
-#### Animated Searchbox without Auto Keyboard Focus `enableKeyboardFocus: false`
-![Animated Searchbox](https://github.com/Anuj2799/animated_search_box/blob/master/assets/Animated_Searchbox_Vid.gif)
+#### Searchbar Animation without Auto Keyboard Focus `enableKeyboardFocus: false`
+![Searchbar Animation](https://github.com/Anuj2799/animated_search_box/blob/master/assets/Animated_Searchbox_Vid.gif)
 
 <br />
 
-#### Animated Searchbox with Auto Keyboard Focus `enableKeyboardFocus: true`
-![Animated Searchbox](https://github.com/Anuj2799/animated_search_box/blob/master/assets/Animated_Searchbox_Autofocus.gif)
+#### Searchbar Animation with Auto Keyboard Focus `enableKeyboardFocus: true`
+![Searchbar Animation](https://github.com/Anuj2799/animated_search_box/blob/master/assets/Animated_Searchbox_Autofocus.gif)
 
 ## Usage
 
 #### Installation
 
-Add `animated_search_box: any` to your `pubspec.yaml` dependencies. And import it:
+Add `searchbar_animation: any` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
-import 'package:animated_search_box/animated_search_box.dart';
+import 'package:searchbar_animation/searchbar_animation.dart';
 ```
 
 #### Example
 
-    AnimatedSearchbox(
+    SearchBarAnimation(
         textController: TextEditingController(),
         isOriginalAnimation: false,
         buttonBorderColour: Colors.black45,
@@ -168,4 +168,4 @@ Contribution towards our repository is always welcome, we request contributors t
 <br />
 
 ## LICENSE
-Animated Searchbox is [MIT-licensed](https://github.com/Anuj2799/animated_searchbar/blob/development/LICENSE "MIT-licensed").
+Searchbar Animation is [MIT-licensed](https://github.com/Anuj2799/animated_searchbar/blob/development/LICENSE "MIT-licensed").
