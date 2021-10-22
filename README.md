@@ -25,10 +25,10 @@ Animated Searchbox provides the horizontal slide animation to a searchbar and it
 
 #### Installation
 
-Add `animated_searchbox: any` to your `pubspec.yaml` dependencies. And import it:
+Add `animated_search_box: any` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
-import 'package:animated_searchbox/animated_searchbox.dart';
+import 'package:animated_search_box/animated_search_box.dart';
 ```
 
 #### Example

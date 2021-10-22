@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:animated_searchbox/animated_searchbox.dart';
+import 'package:animated_search_box/animated_search_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
