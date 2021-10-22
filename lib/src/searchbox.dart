@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class AnimatedSearchbar extends StatefulWidget {
+class AnimatedSearchbox extends StatefulWidget {
   /// This gives the width to the searchbar by default it will take the size of whole screen.
   final double? searchBoxWidth;
 
@@ -103,7 +103,7 @@ class AnimatedSearchbar extends StatefulWidget {
   /// Can set RegExp in the textFormField of search box from here.
   final List<TextInputFormatter>? inputFormatters;
 
-  const AnimatedSearchbar({
+  const AnimatedSearchbox({
     required this.textEditingController,
     required this.isOriginalAnimation,
     Key? key,
@@ -141,10 +141,10 @@ class AnimatedSearchbar extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AnimatedSearchbarState createState() => _AnimatedSearchbarState();
+  _AnimatedSearchboxState createState() => _AnimatedSearchboxState();
 }
 
-class _AnimatedSearchbarState extends State<AnimatedSearchbar>
+class _AnimatedSearchboxState extends State<AnimatedSearchbox>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   FocusNode focusNode = FocusNode();
@@ -190,7 +190,7 @@ class _AnimatedSearchbarState extends State<AnimatedSearchbar>
     return _buildAnimatedSearchbarBody();
   }
 
-  /// main body of the animated searchbar
+  /// main body of the animated searchbox
   Widget _buildAnimatedSearchbarBody() {
     return Container(
       height: 60.0,

@@ -1,39 +1,39 @@
-# Animated Searchbar
+# Animated Searchbox
 
-![animated_searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/title_image.jpg)
+![animated_searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/animated_searchbox_title.jpg)
 
 <br />
 
-Animated Searchbar provides the horizontal slide animation to a searchbar and it is fully customizable.
+Animated Searchbox provides the horizontal slide animation to a searchbar and it is fully customizable.
 
 <br />
 
 ## Screenshots and Screen recording
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_1_Img.jpeg)
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/Animated_Searchbox_1_Img.jpeg)
 
 <br />
 
-#### Animated Searchbar without Auto Keyboard Focus `enableKeyboardFocus: false`
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Vid.gif)
+#### Animated Searchbox without Auto Keyboard Focus `enableKeyboardFocus: false`
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/Animated_Searchbox_Vid.gif)
 
 <br />
 
-#### Animated Searchbar with Auto Keyboard Focus `enableKeyboardFocus: true`
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Autofocus.gif)
+#### Animated Searchbox with Auto Keyboard Focus `enableKeyboardFocus: true`
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/Animated_Searchbox_Autofocus.gif)
 
 ## Usage
 
 #### Installation
 
-Add `animated_searchbar: any` to your `pubspec.yaml` dependencies. And import it:
+Add `animated_searchbox: any` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
-import 'package:animated_searchbar/animated_searchbar.dart';
+import 'package:animated_searchbox/animated_searchbox.dart';
 ```
 
 #### Example
 
-    AnimatedSearchbar(
+    AnimatedSearchbox(
         textController: TextEditingController(),
         isOriginalAnimation: false,
         buttonBorderColour: Colors.black45,
@@ -70,7 +70,7 @@ import 'package:animated_searchbar/animated_searchbar.dart';
 - ButtonIcon is use to set the icon when the search box is closed.
 
 #### hintText:
-- HintText helps to set the hint value for the search box for instance "Search Here..".
+- HintText helps to set the hint value for the search box for instance "Search Here.."
 
 #### searchBarColour:
 - SearchBarColour helps to give the background colour of whole search box.
@@ -168,4 +168,4 @@ Contribution towards our repository is always welcome, we request contributors t
 <br />
 
 ## LICENSE
-Animated Searchbar is [MIT-licensed](https://github.com/Anuj2799/animated_searchbar/blob/development/LICENSE "MIT-licensed").
+Animated Searchbox is [MIT-licensed](https://github.com/Anuj2799/animated_searchbar/blob/development/LICENSE "MIT-licensed").
