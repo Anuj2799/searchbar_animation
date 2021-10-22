@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      title: 'Animated Searchbar',
+      title: 'Searchbar Animation',
       home: SearchbarAnimationExample(),
       debugShowCheckedModeBanner: false,
     ),
@@ -49,7 +49,7 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
               Padding(
                 padding: const EdgeInsets.only(top: 100.0),
                 child: Text(
-                  'Animated Searchbar',
+                  'Searchbar Animation',
                   style: TextStyle(color: Colors.white, fontSize: 25.0),
                 ),
               ),
