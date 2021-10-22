@@ -190,7 +190,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
     return _buildAnimatedSearchbarBody();
   }
 
-  /// main body of the animated searchbox
+  /// main body of the searchbar animation
   Widget _buildAnimatedSearchbarBody() {
     return Container(
       height: 60.0,
