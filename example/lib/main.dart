@@ -1,13 +1,13 @@
 import 'dart:ui';
 
-import 'package:animated_searchbar/animated_searchbar.dart';
+import 'package:animated_searchbox/animated_searchbox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      title: 'Animated Searchbar',
+      title: 'Animated Searchbox',
       home: AnimatedSearchBarExample(),
       debugShowCheckedModeBanner: false,
     ),
@@ -49,7 +49,7 @@ class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
               Padding(
                 padding: const EdgeInsets.only(top: 100.0),
                 child: Text(
-                  'Animated Searchbar',
+                  'Animated Searchbox',
                   style: TextStyle(color: Colors.white, fontSize: 25.0),
                 ),
               ),
@@ -68,7 +68,7 @@ class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: AnimatedSearchbar(
+                        child: AnimatedSearchbox(
                           textEditingController: TextEditingController(),
                           isOriginalAnimation: true,
                           enableKeyboardFocus: true,

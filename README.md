@@ -1,25 +1,25 @@
-# Animated Searchbar
+# Animated Searchbox
 
 ![animated_searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/title_image.jpg)
 
 <br />
 
-Animated Searchbar provides the horizontal slide animation to a searchbar and it is fully customizable.
+Animated Searchbox provides the horizontal slide animation to a searchbar and it is fully customizable.
 
 <br />
 
 ## Screenshots and Screen recording
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_1_Img.jpeg)
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_1_Img.jpeg)
 
 <br />
 
-#### Animated Searchbar without Auto Keyboard Focus `enableKeyboardFocus: false`
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Vid.gif)
+#### Animated Searchbox without Auto Keyboard Focus `enableKeyboardFocus: false`
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Vid.gif)
 
 <br />
 
-#### Animated Searchbar with Auto Keyboard Focus `enableKeyboardFocus: true`
-![Animated Searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Autofocus.gif)
+#### Animated Searchbox with Auto Keyboard Focus `enableKeyboardFocus: true`
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Autofocus.gif)
 
 ## Usage
 
@@ -168,4 +168,4 @@ Contribution towards our repository is always welcome, we request contributors t
 <br />
 
 ## LICENSE
-Animated Searchbar is [MIT-licensed](https://github.com/Anuj2799/animated_searchbar/blob/development/LICENSE "MIT-licensed").
+Animated Searchbox is [MIT-licensed](https://github.com/Anuj2799/animated_searchbar/blob/development/LICENSE "MIT-licensed").
