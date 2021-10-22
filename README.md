@@ -1,6 +1,6 @@
 # Animated Searchbox
 
-![animated_searchbar](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/title_image.jpg)
+![animated_searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/title_image.jpg)
 
 <br />
 
@@ -9,17 +9,17 @@ Animated Searchbox provides the horizontal slide animation to a searchbar and it
 <br />
 
 ## Screenshots and Screen recording
-![Animated Searchbox](https://github.com/Anuj2799/animated_searchbar/blob/development/assets/Animated_Searchbar_1_Img.jpeg)
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/Animated_Searchbox_1_Img.jpeg)
 
 <br />
 
 #### Animated Searchbox without Auto Keyboard Focus `enableKeyboardFocus: false`
-![Animated Searchbox](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Vid.gif)
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/Animated_Searchbox_Vid.gif)
 
 <br />
 
 #### Animated Searchbox with Auto Keyboard Focus `enableKeyboardFocus: true`
-![Animated Searchbox](https://github.com/Anuj2799/animated_searchbar/blob/master/assets/Animated_Searchbar_Autofocus.gif)
+![Animated Searchbox](https://github.com/Anuj2799/animated_searchbox/blob/development/assets/Animated_Searchbox_Autofocus.gif)
 
 ## Usage
 
@@ -28,12 +28,12 @@ Animated Searchbox provides the horizontal slide animation to a searchbar and it
 Add `animated_searchbox: any` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
-import 'package:animated_searchbar/animated_searchbar.dart';
+import 'package:animated_searchbox/animated_searchbox.dart';
 ```
 
 #### Example
 
-    AnimatedSearchbar(
+    AnimatedSearchbox(
         textController: TextEditingController(),
         isOriginalAnimation: false,
         buttonBorderColour: Colors.black45,

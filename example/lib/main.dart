@@ -8,29 +8,29 @@ void main() {
   runApp(
     MaterialApp(
       title: 'Animated Searchbox',
-      home: AnimatedSearchBarExample(),
+      home: AnimatedSearchBoxExample(),
       debugShowCheckedModeBanner: false,
     ),
   );
 }
 
-class AnimatedSearchBarExample extends StatefulWidget {
-  const AnimatedSearchBarExample({Key? key}) : super(key: key);
+class AnimatedSearchBoxExample extends StatefulWidget {
+  const AnimatedSearchBoxExample({Key? key}) : super(key: key);
 
   @override
-  _AnimatedSearchBarExampleState createState() =>
-      _AnimatedSearchBarExampleState();
+  _AnimatedSearchBoxExampleState createState() =>
+      _AnimatedSearchBoxExampleState();
 }
 
-class _AnimatedSearchBarExampleState extends State<AnimatedSearchBarExample> {
+class _AnimatedSearchBoxExampleState extends State<AnimatedSearchBoxExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildAnimatedSearchbar(),
+      body: _buildAnimatedSearchbox(),
     );
   }
 
-  Widget _buildAnimatedSearchbar() {
+  Widget _buildAnimatedSearchbox() {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
