@@ -141,6 +141,12 @@ import 'package:searchbar_animation/searchbar_animation.dart';
 #### onEditingComplete:
 - This is the onEditingComplete method of the textFormField.
 
+#### onExpansionComplete:
+- onExpansionComplete functions can be used to perform something just after searchbox is opened.
+
+#### onCollapseComplete:
+- onExpansionComplete functions can be used to perform something just after searchbox is closed.
+
 #### enteredTextStyle:
 - This allows us to change the style of the text which user have entered in the textFormField of search box.
 

@@ -97,6 +97,12 @@ class SearchBarAnimation extends StatefulWidget {
   /// onFieldSubmitted function for the textFormField.
   final Function? onEditingComplete;
 
+  /// onExpansionComplete functions can be used to perform something just after searchbox is opened.
+  final Function? onExpansionComplete;
+
+  /// onCollapseComplete functions can be used to perform something just after searchbox is closed.
+  final Function? onCollapseComplete;
+
   /// Can set keyBoard Type from here (e.g TextInputType.numeric) by default it is set to text,
   final TextInputType textInputType;
 
@@ -134,6 +140,8 @@ class SearchBarAnimation extends StatefulWidget {
     this.onSaved,
     this.onChanged,
     this.onFieldSubmitted,
+    this.onExpansionComplete,
+    this.onCollapseComplete,
     this.onEditingComplete,
     this.enteredTextStyle,
     this.buttonElevation = 0,
@@ -368,10 +376,11 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
             if (widget.enableKeyboardFocus)
               FocusScope.of(context).requestFocus(focusNode);
           });
-          _animationController.forward().then((value) => {
+          _animationController.forward().then((value) {
                 setState(() {
                   _isAnimationOn = true;
-                })
+                });
+                widget.onExpansionComplete?.call();
               });
         } else {
           switcher = false;
@@ -380,10 +389,11 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
               unFocusKeyboard();
             }
           });
-          _animationController.reverse().then((value) => {
+          _animationController.reverse().then((value) {
                 setState(() {
                   _isAnimationOn = false;
-                })
+                });
+                widget.onCollapseComplete?.call();
               });
         }
       },
@@ -401,7 +411,9 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
             if (widget.enableKeyboardFocus)
               FocusScope.of(context).requestFocus(focusNode);
           });
-          _animationController.forward();
+          _animationController.forward().then((value) {
+            widget.onExpansionComplete?.call();
+          });
         } else {
           switcher = false;
           setState(() {
@@ -409,10 +421,11 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
               unFocusKeyboard();
             }
           });
-          _animationController.reverse().then((value) => {
+          _animationController.reverse().then((value) {
                 setState(() {
                   _isAnimationOn = false;
-                })
+                });
+                widget.onCollapseComplete?.call();
               });
         }
       },
@@ -442,18 +455,18 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
           switcher = false;
         });
         (widget.onEditingComplete != null)
-            ? widget.onEditingComplete!()
+            ? widget.onEditingComplete?.call()
             : debugPrint('onEditingComplete Not Used');
       },
       keyboardType: widget.textInputType,
       onChanged: (var value) {
         (widget.onChanged != null)
-            ? widget.onChanged!(value)
+            ? widget.onChanged?.call(value)
             : debugPrint('onChanged Not Used');
       },
       onSaved: (var value) {
         (widget.onSaved != null)
-            ? widget.onSaved!(value)
+            ? widget.onSaved?.call(value)
             : debugPrint('onSaved Not Used');
       },
       style: widget.enteredTextStyle != null

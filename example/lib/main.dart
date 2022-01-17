@@ -72,6 +72,12 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
                           textEditingController: TextEditingController(),
                           isOriginalAnimation: true,
                           enableKeyboardFocus: true,
+                          onExpansionComplete: (){
+                            debugPrint('do something just after searchbox is opened');
+                          },
+                          onCollapseComplete: (){
+                            debugPrint('do something just after searchbox is closed');
+                          },
                         ),
                       ),
                     ],
