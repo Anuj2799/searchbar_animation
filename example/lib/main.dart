@@ -78,11 +78,11 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
                           enableKeyboardFocus: true,
                           onExpansionComplete: () {
                             debugPrint(
-                                'do something just after searchbox is opened');
+                                'do something just after searchbox is opened.');
                           },
                           onCollapseComplete: () {
                             debugPrint(
-                                'do something just after searchbox is closed');
+                                'do something just after searchbox is closed.');
                           },
                         ),
                       ),
