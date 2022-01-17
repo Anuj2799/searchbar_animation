@@ -332,9 +332,10 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
                             boxShadow: widget.enableButtonShadow
                                 ? [
                                     BoxShadow(
-                                        blurRadius: 5,
-                                        color: widget.buttonShadowColour!,
-                                        spreadRadius: widget.buttonElevation)
+                                      blurRadius: 5,
+                                      color: widget.buttonShadowColour!,
+                                      spreadRadius: widget.buttonElevation,
+                                    )
                                   ]
                                 : null,
                           ),
