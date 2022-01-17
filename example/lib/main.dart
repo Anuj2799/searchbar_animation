@@ -55,11 +55,7 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 85.0,
-                  left: 8.0,
-                  right: 8.0,
-                  bottom: 8.0,
-                ),
+                    top: 85.0, left: 8.0, right: 8.0, bottom: 8.0),
                 child: Container(
                   height: 660.0,
                   decoration: BoxDecoration(
