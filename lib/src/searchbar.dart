@@ -167,7 +167,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
     end: BoxDecoration(
       color: Colors.transparent,
       borderRadius: BorderRadius.circular(60.0),
-      boxShadow: <BoxShadow>[
+      boxShadow: const <BoxShadow>[
         BoxShadow(
           blurRadius: 5.0,
           spreadRadius: 0.0,
@@ -219,7 +219,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
               ? null
               : ((widget.enableBoxShadow)
                   ? [
-                      BoxShadow(
+                      const BoxShadow(
                         color: Colors.black26,
                         spreadRadius: -10.0,
                         blurRadius: 10.0,
@@ -248,9 +248,9 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
                 curve: Curves.easeOut,
                 child: AnimatedOpacity(
                   opacity: (!switcher) ? 0.0 : 1.0,
-                  duration: Duration(milliseconds: 700),
+                  duration: const Duration(milliseconds: 700),
                   child: Container(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
@@ -273,7 +273,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
                 top: 11.0,
                 child: AnimatedOpacity(
                   opacity: (!switcher) ? 0.0 : 1.0,
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   child: Container(
                     padding: const EdgeInsets.only(left: 10),
                     alignment: Alignment.topCenter,
@@ -373,15 +373,16 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
         if (!switcher) {
           switcher = true;
           setState(() {
-            if (widget.enableKeyboardFocus)
+            if (widget.enableKeyboardFocus) {
               FocusScope.of(context).requestFocus(focusNode);
+            }
           });
           _animationController.forward().then((value) {
-                setState(() {
-                  _isAnimationOn = true;
-                });
-                widget.onExpansionComplete?.call();
-              });
+            setState(() {
+              _isAnimationOn = true;
+            });
+            widget.onExpansionComplete?.call();
+          });
         } else {
           switcher = false;
           setState(() {
@@ -390,11 +391,11 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
             }
           });
           _animationController.reverse().then((value) {
-                setState(() {
-                  _isAnimationOn = false;
-                });
-                widget.onCollapseComplete?.call();
-              });
+            setState(() {
+              _isAnimationOn = false;
+            });
+            widget.onCollapseComplete?.call();
+          });
         }
       },
     );
@@ -408,8 +409,9 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
         if (!switcher) {
           switcher = true;
           setState(() {
-            if (widget.enableKeyboardFocus)
+            if (widget.enableKeyboardFocus) {
               FocusScope.of(context).requestFocus(focusNode);
+            }
           });
           _animationController.forward().then((value) {
             widget.onExpansionComplete?.call();
@@ -422,11 +424,11 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
             }
           });
           _animationController.reverse().then((value) {
-                setState(() {
-                  _isAnimationOn = false;
-                });
-                widget.onCollapseComplete?.call();
-              });
+            setState(() {
+              _isAnimationOn = false;
+            });
+            widget.onCollapseComplete?.call();
+          });
         }
       },
     );
@@ -469,9 +471,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
             ? widget.onSaved?.call(value)
             : debugPrint('onSaved Not Used');
       },
-      style: widget.enteredTextStyle != null
-          ? widget.enteredTextStyle
-          : TextStyle(color: Colors.black),
+      style: widget.enteredTextStyle ?? const TextStyle(color: Colors.black),
       cursorColor: widget.cursorColour,
       textAlign: widget.textAlignToRight ? TextAlign.right : TextAlign.left,
       decoration: InputDecoration(

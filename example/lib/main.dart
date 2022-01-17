@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       title: 'Searchbar Animation',
       home: SearchbarAnimationExample(),
       debugShowCheckedModeBanner: false,
@@ -36,7 +36,7 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
                 Color.fromRGBO(0, 169, 191, 1),
@@ -46,21 +46,25 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
           ),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 100.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 100.0),
                 child: Text(
                   'Searchbar Animation',
                   style: TextStyle(color: Colors.white, fontSize: 25.0),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(
-                    top: 85.0, left: 8.0, right: 8.0, bottom: 8.0),
+                padding: const EdgeInsets.only(
+                  top: 85.0,
+                  left: 8.0,
+                  right: 8.0,
+                  bottom: 8.0,
+                ),
                 child: Container(
                   height: 660.0,
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(.8),
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(20.0),
                     ),
                   ),
@@ -72,11 +76,13 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
                           textEditingController: TextEditingController(),
                           isOriginalAnimation: true,
                           enableKeyboardFocus: true,
-                          onExpansionComplete: (){
-                            debugPrint('do something just after searchbox is opened');
+                          onExpansionComplete: () {
+                            debugPrint(
+                                'do something just after searchbox is opened');
                           },
-                          onCollapseComplete: (){
-                            debugPrint('do something just after searchbox is closed');
+                          onCollapseComplete: () {
+                            debugPrint(
+                                'do something just after searchbox is closed');
                           },
                         ),
                       ),
