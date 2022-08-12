@@ -80,6 +80,10 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
                             debugPrint(
                                 'do something just after searchbox is closed.');
                           },
+                          onPressButton: (isSearchBarOpens) {
+                            debugPrint(
+                                'do something before animation started. It\'s the ${isSearchBarOpens ? 'opening' : 'closing'} animation');
+                          },
                         ),
                       ),
                     ],
