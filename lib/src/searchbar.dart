@@ -192,9 +192,9 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
 
   @override
   void dispose() {
-    super.dispose();
     _animationController.dispose();
     widget.textEditingController.dispose();
+    super.dispose();
   }
 
   @override
