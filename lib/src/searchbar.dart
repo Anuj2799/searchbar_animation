@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -103,6 +102,10 @@ class SearchBarAnimation extends StatefulWidget {
   /// onCollapseComplete functions can be used to perform something just after searchbox is closed.
   final Function? onCollapseComplete;
 
+  /// onPressButton function can be used to handle open/close searchbar button taps.
+  /// it may be used for animation start handling
+  final Function(bool isOpen)? onPressButton;
+
   /// Can set keyBoard Type from here (e.g TextInputType.numeric) by default it is set to text,
   final TextInputType textInputType;
 
@@ -142,6 +145,7 @@ class SearchBarAnimation extends StatefulWidget {
       this.onFieldSubmitted,
       this.onExpansionComplete,
       this.onCollapseComplete,
+      this.onPressButton,
       this.onEditingComplete,
       this.enteredTextStyle,
       this.buttonElevation = 0,
@@ -369,6 +373,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
   /// This is the tap function for the animation style not for the original animation style.
   void _onTapFunction() {
     _isAnimationOn = true;
+    widget.onPressButton?.call(!switcher);
     setState(
       () {
         if (!switcher) {
@@ -405,6 +410,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
   /// This is the tap function for the original animation style.
   void _onTapFunctionOriginalAnim() {
     _isAnimationOn = true;
+    widget.onPressButton?.call(!switcher);
     setState(
       () {
         if (!switcher) {
