@@ -1,6 +1,6 @@
 name: searchbar_animation
 description: Searchbar Animation provides the horizontal slide animation to a searchbar and it is fully customizable.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/Anuj2799/searchbar_animation
 
 environment:

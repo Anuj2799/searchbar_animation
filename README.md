@@ -147,6 +147,9 @@ import 'package:searchbar_animation/searchbar_animation.dart';
 #### onCollapseComplete:
 - onExpansionComplete functions can be used to perform something just after searchbox is closed.
 
+#### onPressButton:
+- onPressButton function can be used to handle open/close searchbar button taps, it may be used for animation start handling.
+
 #### enteredTextStyle:
 - This allows us to change the style of the text which user have entered in the textFormField of search box.
 
