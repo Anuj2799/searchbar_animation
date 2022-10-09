@@ -16,22 +16,13 @@ class SearchBarAnimation extends StatefulWidget {
   final TextEditingController textEditingController;
 
   /// Provide trailing icon in search box which is at the end of search box by default it is search icon.
-  final IconData? trailingIcon;
+  final Widget trailingWidget;
 
   /// Provide the button icon that is when the search box is closed by default it is search icon.
-  final IconData? buttonIcon;
+  final Widget buttonWidget;
 
   /// Provide the button icon that is when the search box is open by default it is close icon.
-  final IconData? secondaryButtonIcon;
-
-  /// This allows to set the colour for the button icon.
-  final Color? buttonIconColour;
-
-  /// This allows to set the colour for the trailing icon.
-  final Color? trailingIconColour;
-
-  /// This allows to set the colour for the secondary icon which is icon appears when search box is open.
-  final Color? secondaryButtonIconColour;
+  final Widget secondaryButtonWidget;
 
   /// This allows to set the hintText color of textFormField of the search box.
   final Color? hintTextColour;
@@ -115,52 +106,48 @@ class SearchBarAnimation extends StatefulWidget {
   /// Can set RegExp in the textFormField of search box from here.
   final List<TextInputFormatter>? inputFormatters;
 
-  const SearchBarAnimation(
-      {required this.textEditingController,
-      required this.isOriginalAnimation,
-      Key? key,
-      this.searchBoxWidth,
-      this.trailingIcon = Icons.search,
-      this.secondaryButtonIcon = Icons.close,
-      this.buttonIcon = Icons.search,
-      this.hintText = "Search Here",
-      this.searchBoxColour = AppColours.white,
-      this.buttonColour = AppColours.white,
-      this.cursorColour = AppColours.black,
-      this.buttonIconColour = AppColours.black,
-      this.secondaryButtonIconColour = AppColours.black,
-      this.trailingIconColour = AppColours.black,
-      this.hintTextColour = AppColours.grey,
-      this.searchBoxBorderColour = AppColours.black12,
-      this.buttonShadowColour = AppColours.black45,
-      this.buttonBorderColour = AppColours.black26,
-      this.durationInMilliSeconds = Dimensions.t1000,
-      this.textInputType = TextInputType.text,
-      this.isSearchBoxOnRightSide = false,
-      this.enableKeyboardFocus = false,
-      this.enableBoxBorder = false,
-      this.enableButtonBorder = false,
-      this.enableButtonShadow = true,
-      this.enableBoxShadow = true,
-      this.textAlignToRight = false,
-      this.onSaved,
-      this.onChanged,
-      this.onFieldSubmitted,
-      this.onExpansionComplete,
-      this.onCollapseComplete,
-      this.onPressButton,
-      this.onEditingComplete,
-      this.enteredTextStyle,
-      this.buttonElevation = Dimensions.d0,
-      this.inputFormatters})
-      : super(key: key);
+  const SearchBarAnimation({
+    required this.textEditingController,
+    required this.isOriginalAnimation,
+    required this.trailingWidget,
+    required this.secondaryButtonWidget,
+    required this.buttonWidget,
+    this.searchBoxWidth,
+    this.hintText = "Search Here",
+    this.searchBoxColour = AppColours.white,
+    this.buttonColour = AppColours.white,
+    this.cursorColour = AppColours.black,
+    this.hintTextColour = AppColours.grey,
+    this.searchBoxBorderColour = AppColours.black12,
+    this.buttonShadowColour = AppColours.black45,
+    this.buttonBorderColour = AppColours.black26,
+    this.durationInMilliSeconds = Dimensions.t1000,
+    this.textInputType = TextInputType.text,
+    this.isSearchBoxOnRightSide = false,
+    this.enableKeyboardFocus = false,
+    this.enableBoxBorder = false,
+    this.enableButtonBorder = false,
+    this.enableButtonShadow = true,
+    this.enableBoxShadow = true,
+    this.textAlignToRight = false,
+    this.onSaved,
+    this.onChanged,
+    this.onFieldSubmitted,
+    this.onExpansionComplete,
+    this.onCollapseComplete,
+    this.onPressButton,
+    this.onEditingComplete,
+    this.enteredTextStyle,
+    this.buttonElevation = Dimensions.d0,
+    this.inputFormatters,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _SearchBarAnimationState createState() => _SearchBarAnimationState();
 }
 
-class _SearchBarAnimationState extends State<SearchBarAnimation>
-    with SingleTickerProviderStateMixin {
+class _SearchBarAnimationState extends State<SearchBarAnimation> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   FocusNode focusNode = FocusNode();
   bool _isAnimationOn = false;
@@ -209,13 +196,10 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
   Widget _buildAnimatedSearchbarBody() {
     return Container(
       height: Dimensions.d60,
-      alignment: widget.isSearchBoxOnRightSide
-          ? Alignment.centerRight
-          : Alignment.centerLeft,
+      alignment: widget.isSearchBoxOnRightSide ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         decoration: BoxDecoration(
-          color:
-              _isAnimationOn ? widget.searchBoxColour : AppColours.transparent,
+          color: _isAnimationOn ? widget.searchBoxColour : AppColours.transparent,
           border: Border.all(
               color: !widget.enableBoxBorder
                   ? AppColours.transparent
@@ -239,9 +223,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
         child: AnimatedContainer(
           duration: Duration(milliseconds: widget.durationInMilliSeconds),
           height: Dimensions.d48,
-          width: (!switcher)
-              ? Dimensions.d48
-              : (widget.searchBoxWidth ?? MediaQuery.of(context).size.width),
+          width: (!switcher) ? Dimensions.d48 : (widget.searchBoxWidth ?? MediaQuery.of(context).size.width),
           curve: Curves.easeOut,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimensions.d30),
@@ -262,11 +244,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(Dimensions.d30),
                     ),
-                    child: Icon(
-                      widget.trailingIcon!,
-                      size: Dimensions.d20,
-                      color: widget.trailingIconColour,
-                    ),
+                    child: widget.trailingWidget,
                   ),
                 ),
               ),
@@ -285,42 +263,27 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
                   child: Container(
                     padding: const EdgeInsets.only(left: Dimensions.d10),
                     alignment: Alignment.topCenter,
-                    width: (widget.searchBoxWidth ??
-                            MediaQuery.of(context).size.width) /
-                        Dimensions.d1_7,
+                    width: (widget.searchBoxWidth ?? MediaQuery.of(context).size.width) / Dimensions.d1_7,
                     child: _textFormField(),
                   ),
                 ),
               ),
               Align(
-                alignment: widget.isSearchBoxOnRightSide
-                    ? Alignment.centerRight
-                    : Alignment.centerLeft,
+                alignment: widget.isSearchBoxOnRightSide ? Alignment.centerRight : Alignment.centerLeft,
                 child: (widget.isOriginalAnimation)
                     ? Padding(
                         padding: const EdgeInsets.all(Dimensions.d5),
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: _isAnimationOn
-                                ? null
-                                : Border.all(color: widget.buttonBorderColour!),
+                            border: _isAnimationOn ? null : Border.all(color: widget.buttonBorderColour!),
                           ),
                           child: DecoratedBoxTransition(
-                            decoration:
-                                decorationTween.animate(_animationController),
+                            decoration: decorationTween.animate(_animationController),
                             child: GestureDetector(
                               child: CircleAvatar(
                                 backgroundColor: widget.buttonColour,
-                                child: Icon(
-                                  switcher
-                                      ? widget.secondaryButtonIcon!
-                                      : widget.buttonIcon!,
-                                  size: Dimensions.d20,
-                                  color: switcher
-                                      ? widget.secondaryButtonIconColour
-                                      : widget.buttonIconColour,
-                                ),
+                                child: switcher ? widget.secondaryButtonWidget : widget.buttonWidget,
                               ),
                               onTap: () {
                                 _onTapFunctionOriginalAnim();
@@ -334,9 +297,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: widget.enableButtonBorder
-                                ? Border.all(color: widget.buttonBorderColour!)
-                                : null,
+                            border: widget.enableButtonBorder ? Border.all(color: widget.buttonBorderColour!) : null,
                             boxShadow: widget.enableButtonShadow
                                 ? [
                                     BoxShadow(
@@ -350,15 +311,7 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
                           child: GestureDetector(
                             child: CircleAvatar(
                               backgroundColor: widget.buttonColour,
-                              child: Icon(
-                                switcher
-                                    ? widget.secondaryButtonIcon!
-                                    : widget.buttonIcon!,
-                                size: Dimensions.d20,
-                                color: switcher
-                                    ? widget.secondaryButtonIconColour
-                                    : widget.buttonIconColour,
-                              ),
+                              child: switcher ? widget.secondaryButtonWidget : widget.buttonWidget,
                             ),
                             onTap: () {
                               _onTapFunction();
@@ -458,32 +411,23 @@ class _SearchBarAnimationState extends State<SearchBarAnimation>
         setState(() {
           switcher = true;
         });
-        (widget.onFieldSubmitted != null)
-            ? widget.onFieldSubmitted!(value)
-            : debugPrint('onFieldSubmitted Not Used');
+        (widget.onFieldSubmitted != null) ? widget.onFieldSubmitted!(value) : debugPrint('onFieldSubmitted Not Used');
       },
       onEditingComplete: () {
         unFocusKeyboard();
         setState(() {
           switcher = false;
         });
-        (widget.onEditingComplete != null)
-            ? widget.onEditingComplete?.call()
-            : debugPrint('onEditingComplete Not Used');
+        (widget.onEditingComplete != null) ? widget.onEditingComplete?.call() : debugPrint('onEditingComplete Not Used');
       },
       keyboardType: widget.textInputType,
       onChanged: (var value) {
-        (widget.onChanged != null)
-            ? widget.onChanged?.call(value)
-            : debugPrint('onChanged Not Used');
+        (widget.onChanged != null) ? widget.onChanged?.call(value) : debugPrint('onChanged Not Used');
       },
       onSaved: (var value) {
-        (widget.onSaved != null)
-            ? widget.onSaved?.call(value)
-            : debugPrint('onSaved Not Used');
+        (widget.onSaved != null) ? widget.onSaved?.call(value) : debugPrint('onSaved Not Used');
       },
-      style:
-          widget.enteredTextStyle ?? const TextStyle(color: AppColours.black),
+      style: widget.enteredTextStyle ?? const TextStyle(color: AppColours.black),
       cursorColor: widget.cursorColour,
       textAlign: widget.textAlignToRight ? TextAlign.right : TextAlign.left,
       decoration: InputDecoration(

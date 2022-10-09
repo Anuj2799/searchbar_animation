@@ -60,14 +60,14 @@ import 'package:searchbar_animation/searchbar_animation.dart';
 #### searchBoxWidth:
 - SearchBoxWidth decides the width or the length of the search box by default it will take the full width of the screen.
 
-#### trailingIcon:
-- TrailingIcon is use to set the icon which is at the end of the search box.
+#### trailingWidget:
+- TrailingWidget is use to set any widget which is at the end of the search box.
 
-#### secondaryButtonIcon:
-- SecondaryButtonIcon is use to set the icon of button when the search box is open.
+#### secondaryButtonWidget:
+- SecondaryButtonWidget is use to set any widget of button when the search box is open.
 
-#### buttonIcon:
-- ButtonIcon is use to set the icon when the search box is closed.
+#### buttonWidget:
+- ButtonWidget is use to set any widget when the search box is closed.
 
 #### hintText:
 - HintText helps to set the hint value for the search box for instance "Search Here.."
@@ -80,15 +80,6 @@ import 'package:searchbar_animation/searchbar_animation.dart';
 
 #### cursorColour:
 - CursorColour allows to give the colour to cursor of the textFormField of search box.
-
-#### buttonIconColour:
-- ButtonIconColour allows us to give the colour to button icon when the search box is closed.
-
-#### secondaryButtonIconColour:
-- SecondaryButtonIconColour allows us to give the colour to button icon when the search box is open.
-
-#### trailingIconColour:
-- TrailingIconColour allows to give the colour to the icon which is at the end of the search box.
 
 #### hintTextColour:
 - HintTextColour is use to give the colour to hintText of the textFormField in search box.
