@@ -147,7 +147,8 @@ class SearchBarAnimation extends StatefulWidget {
   _SearchBarAnimationState createState() => _SearchBarAnimationState();
 }
 
-class _SearchBarAnimationState extends State<SearchBarAnimation> with SingleTickerProviderStateMixin {
+class _SearchBarAnimationState extends State<SearchBarAnimation>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   FocusNode focusNode = FocusNode();
   bool _isAnimationOn = false;
@@ -196,10 +197,13 @@ class _SearchBarAnimationState extends State<SearchBarAnimation> with SingleTick
   Widget _buildAnimatedSearchbarBody() {
     return Container(
       height: Dimensions.d60,
-      alignment: widget.isSearchBoxOnRightSide ? Alignment.centerRight : Alignment.centerLeft,
+      alignment: widget.isSearchBoxOnRightSide
+          ? Alignment.centerRight
+          : Alignment.centerLeft,
       child: Container(
         decoration: BoxDecoration(
-          color: _isAnimationOn ? widget.searchBoxColour : AppColours.transparent,
+          color:
+              _isAnimationOn ? widget.searchBoxColour : AppColours.transparent,
           border: Border.all(
               color: !widget.enableBoxBorder
                   ? AppColours.transparent
@@ -223,7 +227,9 @@ class _SearchBarAnimationState extends State<SearchBarAnimation> with SingleTick
         child: AnimatedContainer(
           duration: Duration(milliseconds: widget.durationInMilliSeconds),
           height: Dimensions.d48,
-          width: (!switcher) ? Dimensions.d48 : (widget.searchBoxWidth ?? MediaQuery.of(context).size.width),
+          width: (!switcher)
+              ? Dimensions.d48
+              : (widget.searchBoxWidth ?? MediaQuery.of(context).size.width),
           curve: Curves.easeOut,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Dimensions.d30),
@@ -263,27 +269,36 @@ class _SearchBarAnimationState extends State<SearchBarAnimation> with SingleTick
                   child: Container(
                     padding: const EdgeInsets.only(left: Dimensions.d10),
                     alignment: Alignment.topCenter,
-                    width: (widget.searchBoxWidth ?? MediaQuery.of(context).size.width) / Dimensions.d1_7,
+                    width: (widget.searchBoxWidth ??
+                            MediaQuery.of(context).size.width) /
+                        Dimensions.d1_7,
                     child: _textFormField(),
                   ),
                 ),
               ),
               Align(
-                alignment: widget.isSearchBoxOnRightSide ? Alignment.centerRight : Alignment.centerLeft,
+                alignment: widget.isSearchBoxOnRightSide
+                    ? Alignment.centerRight
+                    : Alignment.centerLeft,
                 child: (widget.isOriginalAnimation)
                     ? Padding(
                         padding: const EdgeInsets.all(Dimensions.d5),
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: _isAnimationOn ? null : Border.all(color: widget.buttonBorderColour!),
+                            border: _isAnimationOn
+                                ? null
+                                : Border.all(color: widget.buttonBorderColour!),
                           ),
                           child: DecoratedBoxTransition(
-                            decoration: decorationTween.animate(_animationController),
+                            decoration:
+                                decorationTween.animate(_animationController),
                             child: GestureDetector(
                               child: CircleAvatar(
                                 backgroundColor: widget.buttonColour,
-                                child: switcher ? widget.secondaryButtonWidget : widget.buttonWidget,
+                                child: switcher
+                                    ? widget.secondaryButtonWidget
+                                    : widget.buttonWidget,
                               ),
                               onTap: () {
                                 _onTapFunctionOriginalAnim();
@@ -297,7 +312,9 @@ class _SearchBarAnimationState extends State<SearchBarAnimation> with SingleTick
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: widget.enableButtonBorder ? Border.all(color: widget.buttonBorderColour!) : null,
+                            border: widget.enableButtonBorder
+                                ? Border.all(color: widget.buttonBorderColour!)
+                                : null,
                             boxShadow: widget.enableButtonShadow
                                 ? [
                                     BoxShadow(
@@ -311,7 +328,9 @@ class _SearchBarAnimationState extends State<SearchBarAnimation> with SingleTick
                           child: GestureDetector(
                             child: CircleAvatar(
                               backgroundColor: widget.buttonColour,
-                              child: switcher ? widget.secondaryButtonWidget : widget.buttonWidget,
+                              child: switcher
+                                  ? widget.secondaryButtonWidget
+                                  : widget.buttonWidget,
                             ),
                             onTap: () {
                               _onTapFunction();
@@ -411,23 +430,32 @@ class _SearchBarAnimationState extends State<SearchBarAnimation> with SingleTick
         setState(() {
           switcher = true;
         });
-        (widget.onFieldSubmitted != null) ? widget.onFieldSubmitted!(value) : debugPrint('onFieldSubmitted Not Used');
+        (widget.onFieldSubmitted != null)
+            ? widget.onFieldSubmitted!(value)
+            : debugPrint('onFieldSubmitted Not Used');
       },
       onEditingComplete: () {
         unFocusKeyboard();
         setState(() {
           switcher = false;
         });
-        (widget.onEditingComplete != null) ? widget.onEditingComplete?.call() : debugPrint('onEditingComplete Not Used');
+        (widget.onEditingComplete != null)
+            ? widget.onEditingComplete?.call()
+            : debugPrint('onEditingComplete Not Used');
       },
       keyboardType: widget.textInputType,
       onChanged: (var value) {
-        (widget.onChanged != null) ? widget.onChanged?.call(value) : debugPrint('onChanged Not Used');
+        (widget.onChanged != null)
+            ? widget.onChanged?.call(value)
+            : debugPrint('onChanged Not Used');
       },
       onSaved: (var value) {
-        (widget.onSaved != null) ? widget.onSaved?.call(value) : debugPrint('onSaved Not Used');
+        (widget.onSaved != null)
+            ? widget.onSaved?.call(value)
+            : debugPrint('onSaved Not Used');
       },
-      style: widget.enteredTextStyle ?? const TextStyle(color: AppColours.black),
+      style:
+          widget.enteredTextStyle ?? const TextStyle(color: AppColours.black),
       cursorColor: widget.cursorColour,
       textAlign: widget.textAlignToRight ? TextAlign.right : TextAlign.left,
       decoration: InputDecoration(

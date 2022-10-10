@@ -15,7 +15,8 @@ class SearchbarAnimationExample extends StatefulWidget {
   const SearchbarAnimationExample({Key? key}) : super(key: key);
 
   @override
-  _SearchbarAnimationExampleState createState() => _SearchbarAnimationExampleState();
+  _SearchbarAnimationExampleState createState() =>
+      _SearchbarAnimationExampleState();
 }
 
 class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
@@ -50,7 +51,8 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 85.0, left: 8.0, right: 8.0, bottom: 8.0),
+                padding: const EdgeInsets.only(
+                    top: 85.0, left: 8.0, right: 8.0, bottom: 8.0),
                 child: Container(
                   height: 660.0,
                   decoration: BoxDecoration(
@@ -68,10 +70,12 @@ class _SearchbarAnimationExampleState extends State<SearchbarAnimationExample> {
                           isOriginalAnimation: true,
                           enableKeyboardFocus: true,
                           onExpansionComplete: () {
-                            debugPrint('do something just after searchbox is opened.');
+                            debugPrint(
+                                'do something just after searchbox is opened.');
                           },
                           onCollapseComplete: () {
-                            debugPrint('do something just after searchbox is closed.');
+                            debugPrint(
+                                'do something just after searchbox is closed.');
                           },
                           onPressButton: (isSearchBarOpens) {
                             debugPrint(
